@@ -331,7 +331,7 @@ export default class FileSystemCache implements CacheHandler {
         // had a tag revalidated, if we want to be a background
         // revalidation instead we return data.lastModified = -1
         if (isStale) {
-          data = undefined
+          data.lastModified = -1
         }
       }
     }
@@ -355,7 +355,7 @@ export default class FileSystemCache implements CacheHandler {
       // When revalidate tag is called we don't return
       // stale data so it's updated right away
       if (wasRevalidated) {
-        data = undefined
+        data.lastModified = -1
       }
     }
 
